@@ -1,0 +1,6 @@
+devops-key.pem
+
+.terraform/
+*.tfstate
+*.tfstate.backup
+devops-key.pem

@@ -1,0 +1,38 @@
+---
+- name: Setup and deploy app
+  hosts: all
+  become: true
+
+  tasks:
+
+    - name: Update apt
+      apt:
+        update_cache: yes
+
+    - name: Install Apache
+      apt:
+        name: apache2
+        state: present
+
+    - name: Start Apache
+      service:
+        name: apache2
+        state: started
+        enabled: true
+
+    - name: Remove old files
+      file:
+        path: /var/www/html
+        state: absent
+
+    - name: Create web directory
+      file:
+        path: /var/www/html
+        state: directory
+        mode: '0755'
+
+    - name: Copy app files
+      copy:
+        src: ../app/
+        dest: /var/www/html/
+        mode: '0755'
