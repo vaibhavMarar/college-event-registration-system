@@ -1,9 +1,6 @@
-[blue]
-3.111.150.144
-
 [green]
-13.232.124.126
+172.31.1.60
 
 [all:vars]
 ansible_user=ubuntu
-ansible_ssh_private_key_file=/home/vaibh/devops-key.pem
+ansible_ssh_private_key_file=/home/ubuntu/zainab-key.pem
